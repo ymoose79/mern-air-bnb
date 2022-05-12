@@ -1,25 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
+import LazyLoad from 'react-lazyload'
 
 
-// address.street, cost, image, summary, price, images.thumbnail_url, 
 
+// address.street, image, summary, price.$numberDecimal, images.thumbnail_url, review_scores.,review_scores_rating
 
-const Card = ({ firstListin }) => {
+const Card = ({ listing, key }) => {
 
-    const { name, summary, images } = firstListin;
+    const { name, summary } = listing;
+    const renderListing = listing.summary.length > 0;
 
-    return (
-        <div className='card' style={{ width: '18rem' }}>
-            {/* <img src={images.picture_url || ''} class="card-img-top" alt="thumbnail"></img> */}
-            <div className='card-body'>
-                <h5 className="card-title">{name}</h5>
-                <p className="card-text">{summary}</p>
-                <a href="#" className="btn btn-primary">check it out!</a>
+    if (renderListing) {
+
+        return (
+            <div className='card m-2' style={{ width: '18rem' }} key={key} >
+                {/* <LazyLoad height={11.46}>
+                <img src={images.picture_url} className="card-img-top" alt="thumbnail" ></img>
+            </LazyLoad> */}
+                <div className='card-body'>
+                    <h5 className="card-title">{name}</h5>
+                    <p className="card-text">{summary}</p>
+                    <button href="#" className="btn btn-primary">Check it Out! </button>
+                </div>
             </div>
-            {/* <button onClick={() => check({ firstListin })}>click</button> */}
-            {/* <button onClick={() => check(images)}>click</button> */}
-        </div>
-    )
+        )
+    }
 }
 
 export default Card
