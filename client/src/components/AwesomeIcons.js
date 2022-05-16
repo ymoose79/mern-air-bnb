@@ -5,37 +5,45 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- im
 
 const AwesomeIcons = () => {
     return (
-        <div className="d-flex justify-content-evenly">
-            <div>
-                <FontAwesomeIcon icon={solid("pizza-slice")} />
+        <div className='d-flex flex-wrap justify-content-evenly'>
+            <div className='px-3'>
+                <a href="/">
+                    <FontAwesomeIcon icon={solid("pizza-slice")} /> </a>
                 <p>NY</p>
             </div>
-            <div>
-                <FontAwesomeIcon icon={solid("futbol")} />
+            <div className='px-3'>
+                <a href="/">
+                    <FontAwesomeIcon icon={solid("futbol")} /></a>
                 <p>portugal</p>
             </div>
-            <div>
-                <FontAwesomeIcon icon={solid("hockey-puck")} />
+            <div className='px-3'>
+                <a href="/">
+                    <FontAwesomeIcon icon={solid("hockey-puck")} /></a>
                 <p>canada</p>
             </div>
-            <div>
-                <FontAwesomeIcon icon={solid("umbrella-beach")} />
+            <div className='px-3'>
+                <a href="/">
+                    <FontAwesomeIcon icon={solid("umbrella-beach")} /></a>
                 <p>hawaii</p>
             </div>
-            <div>
-                <FontAwesomeIcon icon={solid("guitar")} />
+            <div className='px-3'>
+                <a href="/">
+                    <FontAwesomeIcon icon={solid("guitar")} /></a>
                 <p>spain</p>
             </div>
-            <div>
-                <FontAwesomeIcon icon={solid("moon")} />
+            <div className='px-3'>
+                <a href="/">
+                    <FontAwesomeIcon icon={solid("moon")} /></a>
                 <p>turkey</p>
             </div>
-            <div>
-                <FontAwesomeIcon icon={solid("dragon")} />
+            <div className='px-3'>
+                <a href="/">
+                    <FontAwesomeIcon icon={solid("dragon")} /></a>
                 <p>china</p>
             </div>
-            <div>
-                <FontAwesomeIcon icon={solid("beer-mug-empty")} />
+            <div className='px-3'>
+                <a href="/">
+                    <FontAwesomeIcon icon={solid("beer-mug-empty")} /></a>
                 <p>Austraila</p>
             </div>
         </div>
