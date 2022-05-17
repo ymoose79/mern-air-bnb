@@ -13,7 +13,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 
 // This section will help you get a list of all the records.
-recordRoutes.route("/listingsAndReview").get(function (req, res) {
+recordRoutes.route("/").get(function (req, res) {
   let db_connect = dbo.getDb("sample_airbnb");
   db_connect
     .collection("listingsAndReviews")
@@ -24,22 +24,23 @@ recordRoutes.route("/listingsAndReview").get(function (req, res) {
       res.json(result);
     });
 });
-
+// -----> TODO TODO TODO TODO -> adjust BSON type err on OBJECT ID
 // This section will help you get a single record by id
-recordRoutes.route("/listingsAndReview/:id").get(function (req, res) {
-  let db_connect = dbo.getDb();
-  let myquery = { _id: ObjectId(req.params.id) };
-  db_connect
-    .collection("listingsAndReviews")
-    .findOne(myquery, function (err, result) {
-      if (err) throw err;
-      res.json(result);
-    });
-});
+// recordRoutes.route("/:id").get(function (req, res) {
+//   let db_connect = dbo.getDb();
+//   let myquery = { _id: ObjectId(req.params.id) };
+//   db_connect
+//     .collection("listingsAndReviews")
+//     .findOne(myquery, function (err, result) {
+//       if (err) throw err;
+//       res.json(result);
+//     });
+// });
 
 // This section will help you create a new record.
-recordRoutes.route("/listingsAndReview/add").post(function (req, response) {
+recordRoutes.route("/add").post(function (req, response) {
   let db_connect = dbo.getDb();
+  // values need to be adjusted <------------------------
   let myobj = {
     name: req.body.name,
     summary: req.body.summary,
@@ -56,6 +57,7 @@ recordRoutes.route("/update/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {
+    // values need to be adjusted <------------------------
     $set: {
       name: req.body.name,
       summary: req.body.summary,
@@ -73,6 +75,21 @@ recordRoutes.route("/:id").delete((req, response) => {
     console.log("1 document deleted");
     response.json(obj);
   });
+});
+
+recordRoutes.route("/location").get(function (req, res) {
+  let db_connect = dbo.getDb("sample_airbnb");
+  let myobj = {
+    "address.market": req.body.location
+  };
+  db_connect
+    .collection("listingsAndReviews")
+    .find(myobj)
+    .limit(50)
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
 });
 
 module.exports = recordRoutes;
