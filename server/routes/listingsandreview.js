@@ -78,10 +78,12 @@ recordRoutes.route("/:id").delete((req, response) => {
 });
 
 recordRoutes.route("/location").get(function (req, res) {
+
   let db_connect = dbo.getDb("sample_airbnb");
+  console.log({ city })
   let myobj = {
-    "address.market": req.body.location
-  };
+    "address.market": city
+  }
   db_connect
     .collection("listingsAndReviews")
     .find(myobj)

@@ -5,18 +5,17 @@ import React from 'react'
 
 const Card = ({ listing, key }) => {
 
-
     const { name, summary } = listing;
     const renderListing = listing.summary.length > 0;
 
     if (renderListing) {
 
         return (
-            <div className='card m-2' style={{ width: '18rem' }} key={key} >
+            <div className='card m-2' style={{ width: '18rem' }} >
                 <div className='card-body'>
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text">{summary}</p>
-                    <button href="#" className="btn btn-primary">Check it Out! </button>
+                    <button className="btn btn-primary" >Check it Out! </button>
                 </div>
             </div>
         )

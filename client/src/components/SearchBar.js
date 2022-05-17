@@ -1,19 +1,28 @@
-import React, { useState, useEffect } from "react";
-
-
+import React, { useState } from "react";
+const { REACT_APP_URL } = process.env
 
 const SearchBar = () => {
 
 
     const [location, setLocation] = useState('');
-    const handleInputChange = (e) => { setLocation(e.target.value) }
+    const handleOnChange = function (e) {
+        e.preventDefault();
+        setLocation(e.target.value)
+    }
 
-    // const localSearch = db.collection('listingsandreviews').find()
-
+    async function citySearch(e) {
+        e.preventDefault();
+        const response = await fetch(`${REACT_APP_URL}location?city=${location}`)
+        const res = await response.json();
+        console.log(res[1])
+    }
 
     return (
         <div>
-            <input type="text" className="form-control my-3" placeholder="location" value={location} onChange={handleInputChange}></input>
+            <form onSubmit={citySearch}>
+                <input type="text" className="form-control my-3" placeholder="location" onChange={handleOnChange}></input>
+                <button>submit</button>
+            </form>
         </div>
     )
 }

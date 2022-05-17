@@ -8,6 +8,7 @@ function App() {
 
     const [twentyListings, setTwentyListings] = useState([])
 
+
     useEffect(() => {
         async function fetchData() {
             const response = await fetch(`${REACT_APP_URL}`)
@@ -21,12 +22,11 @@ function App() {
     }, []);
     return (
         <div className='container'>
-            <h1 className="display-3 text-center mt-5">Bed and Breakfast</h1>
             <AwesomeIcons />
             <SearchBar />
             <div className="d-flex flex-wrap justify-content-evenly">
                 {twentyListings.map((listing) => {
-                    return <Card key={listing.id} listing={listing} />
+                    return <Card listing={listing} />
                 })}
             </div>
         </div>
