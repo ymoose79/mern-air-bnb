@@ -1,19 +1,12 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
-const { REACT_APP_URL } = process.env
+import { Link } from 'react-router-dom'
 
 
-const AwesomeIcons = ({ faIcon }) => {
+const AwesomeIcons = () => {
 
-    const iconInfo = [{ title: "New York", icon: solid('pizza-slice'), city: "New York" }, { title: "Portugal", icon: solid("futbol"), city: "Porto" }, { title: "Canada", icon: solid("hockey-puck"), city: "Montreal" }, { title: "Hawaii", icon: solid("umbrella-beach"), city: ["Maui", "The Big Island", "Kauai"] }, { title: "Spain", icon: solid("guitar"), city: "Barcelona" }, { title: "Turkey", icon: solid("moon"), city: "Istanbul" }, { title: "China", icon: solid("dragon"), city: "Hong Kong" }, { title: "Austrailia", icon: solid("beer-mug-empty"), city: "Sydney" }]
-
-    async function citySearch(e, city) {
-        e.preventDefault();
-        const response = await fetch(`${REACT_APP_URL}location?city=${city}`)
-        const res = await response.json();
-        console.log(res[1])
-    }
+    const iconInfo = [{ title: "New York", icon: solid('pizza-slice'), city: "New York", href: "/location/newyork" }, { title: "Portugal", icon: solid("futbol"), city: "Porto" }, { title: "Canada", icon: solid("hockey-puck"), city: "Montreal" }, { title: "Hawaii", icon: solid("umbrella-beach"), city: ["Maui", "The Big Island", "Kauai"] }, { title: "Spain", icon: solid("guitar"), city: "Barcelona" }, { title: "Turkey", icon: solid("moon"), city: "Istanbul" }, { title: "China", icon: solid("dragon"), city: "Hong Kong" }, { title: "Austrailia", icon: solid("beer-mug-empty"), city: "Sydney" }]
 
     return (
         <>
@@ -22,9 +15,9 @@ const AwesomeIcons = ({ faIcon }) => {
                 {iconInfo.map((faIcon, i) => {
                     return (
                         <div className='px-3' >
-                            < a href="/" title={faIcon.title} onClick={(e) => citySearch(e, faIcon.city)}>
+                            < Link to={faIcon.city} title={faIcon.title} >
                                 <FontAwesomeIcon icon={faIcon.icon} />
-                            </a>
+                            </Link>
                         </div>)
                 })}
             </div>
