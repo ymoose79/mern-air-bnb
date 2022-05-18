@@ -24,8 +24,8 @@ recordRoutes.route("/").get(function (req, res) {
       res.json(result);
     });
 });
-// -----> TODO TODO TODO TODO -> adjust BSON type err on OBJECT ID
-// This section will help you get a single record by id
+// // -----> TODO TODO TODO TODO -> adjust BSON type err on OBJECT ID
+// // This section will help you get a single record by id
 // recordRoutes.route("/:id").get(function (req, res) {
 //   let db_connect = dbo.getDb();
 //   let myquery = { _id: ObjectId(req.params.id) };
@@ -80,13 +80,14 @@ recordRoutes.route("/:id").delete((req, response) => {
 recordRoutes.route("/location").get(function (req, res) {
 
   let db_connect = dbo.getDb("sample_airbnb");
-  console.log({ city })
-  let myobj = {
+  const { city } = req.query
+  const myObj = {
     "address.market": city
   }
+
   db_connect
     .collection("listingsAndReviews")
-    .find(myobj)
+    .find(myObj)
     .limit(50)
     .toArray(function (err, result) {
       if (err) throw err;

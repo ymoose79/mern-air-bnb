@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Card from './components/Card.js'
-import SearchBar from "./components/SearchBar.js";
 import AwesomeIcons from "./components/AwesomeIcons.js";
+
 const { REACT_APP_URL } = process.env
 
 function App() {
 
     const [twentyListings, setTwentyListings] = useState([])
-
 
     useEffect(() => {
         async function fetchData() {
@@ -20,12 +19,12 @@ function App() {
         fetchData();
         return;
     }, []);
+
     return (
         <div className='container'>
             <AwesomeIcons />
-            <SearchBar />
             <div className="d-flex flex-wrap justify-content-evenly">
-                {twentyListings.map((listing) => {
+                {twentyListings.map((listing, i) => {
                     return <Card listing={listing} />
                 })}
             </div>

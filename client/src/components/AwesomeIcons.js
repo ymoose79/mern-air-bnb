@@ -1,56 +1,35 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+const { REACT_APP_URL } = process.env
 
 
-const AwesomeIcons = () => {
+const AwesomeIcons = ({ faIcon }) => {
+
+    const iconInfo = [{ title: "New York", icon: solid('pizza-slice'), city: "New York" }, { title: "Portugal", icon: solid("futbol"), city: "Porto" }, { title: "Canada", icon: solid("hockey-puck"), city: "Montreal" }, { title: "Hawaii", icon: solid("umbrella-beach"), city: ["Maui", "The Big Island", "Kauai"] }, { title: "Spain", icon: solid("guitar"), city: "Barcelona" }, { title: "Turkey", icon: solid("moon"), city: "Istanbul" }, { title: "China", icon: solid("dragon"), city: "Hong Kong" }, { title: "Austrailia", icon: solid("beer-mug-empty"), city: "Sydney" }]
+
+    async function citySearch(e, city) {
+        e.preventDefault();
+        const response = await fetch(`${REACT_APP_URL}location?city=${city}`)
+        const res = await response.json();
+        console.log(res[1])
+    }
+
     return (
-        <div className='d-flex flex-wrap justify-content-evenly'>
-            <div className='px-3'>
-                <a href="/">
-                    <FontAwesomeIcon icon={solid("pizza-slice")} /> </a>
-                <p>NY</p>
+        <>
+            <h1 className="display-3 text-center mt-5">Bed and Breakfast</h1>
+            <div className='d-flex flex-wrap justify-content-evenly m-3'>
+                {iconInfo.map((faIcon, i) => {
+                    return (
+                        <div className='px-3' >
+                            < a href="/" title={faIcon.title} onClick={(e) => citySearch(e, faIcon.city)}>
+                                <FontAwesomeIcon icon={faIcon.icon} />
+                            </a>
+                        </div>)
+                })}
             </div>
-            <div className='px-3'>
-                <a href="/">
-                    <FontAwesomeIcon icon={solid("futbol")} /></a>
-                <p>portugal</p>
-            </div>
-            <div className='px-3'>
-                <a href="/">
-                    <FontAwesomeIcon icon={solid("hockey-puck")} /></a>
-                <p>canada</p>
-            </div>
-            <div className='px-3'>
-                <a href="/">
-                    <FontAwesomeIcon icon={solid("umbrella-beach")} /></a>
-                <p>hawaii</p>
-            </div>
-            <div className='px-3'>
-                <a href="/">
-                    <FontAwesomeIcon icon={solid("guitar")} /></a>
-                <p>spain</p>
-            </div>
-            <div className='px-3'>
-                <a href="/">
-                    <FontAwesomeIcon icon={solid("moon")} /></a>
-                <p>turkey</p>
-            </div>
-            <div className='px-3'>
-                <a href="/">
-                    <FontAwesomeIcon icon={solid("dragon")} /></a>
-                <p>china</p>
-            </div>
-            <div className='px-3'>
-                <a href="/">
-                    <FontAwesomeIcon icon={solid("beer-mug-empty")} /></a>
-                <p>Austraila</p>
-            </div>
-        </div>
+        </>
     )
 }
-
-//   Sydney, Maui, the Big Island, Kauai, 
-// NY, Rio, Portugal, Barcelona, Hawaii, Canada, Turkey, China, Austraila
 
 export default AwesomeIcons
