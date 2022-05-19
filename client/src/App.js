@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home.js";
 import NoMatch from "./components/NoMatch.js";
 import Location from "./components/Location.js";
+import LocationDetails from "./components/LocationDetails.js";
+
 
 
 
@@ -15,6 +17,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path=":city" element={<Location />} />
+                <Route path=":city/:id" element={<LocationDetails />} />
                 <Route path="*" element={<NoMatch />} />
             </Routes>
         </div>

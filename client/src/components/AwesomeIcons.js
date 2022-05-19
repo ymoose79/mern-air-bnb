@@ -12,7 +12,7 @@ const AwesomeIcons = () => {
         <>
             <h1 className="display-3 text-center mt-5">Bed and Breakfast</h1>
             <div className='d-flex flex-wrap justify-content-evenly m-3'>
-                {iconInfo.map((faIcon, i) => {
+                {iconInfo.map((faIcon) => {
                     return (
                         <div className='px-3' >
                             < Link to={faIcon.city} title={faIcon.title} >
