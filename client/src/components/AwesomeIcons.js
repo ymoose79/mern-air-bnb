@@ -10,14 +10,18 @@ const AwesomeIcons = () => {
 
     return (
         <>
-            <h1 className="display-3 text-center mt-5">Bed and Breakfast</h1>
+            <h1 className="display-3 text-center bg-secondary bg-opacity-25 mt-5">Bed and Breakfast</h1>
+            <hr />
             <div className='d-flex flex-wrap justify-content-evenly m-3'>
-                {iconInfo.map((faIcon) => {
+                {iconInfo.map((faIcon, i) => {
                     return (
-                        <div className='px-3' >
-                            < Link to={faIcon.city} title={faIcon.title} >
-                                <FontAwesomeIcon icon={faIcon.icon} />
-                            </Link>
+                        <div key={i}>
+                            <div className='container justify-content-center text-center'>
+                                < Link to={faIcon.city} title={faIcon.title} >
+                                    <FontAwesomeIcon icon={faIcon.icon} />
+                                </Link>
+                                <p>{faIcon.title}</p>
+                            </div>
                         </div>)
                 })}
             </div>
