@@ -25,8 +25,7 @@ function DatePicker(minimum_nights) {
                 withPortal={true}
                 minimumNights={minNights}
                 small={true}
-                horizontalMargin={0}
-            />
+                orientation={"vertical"} />
         </div>);
 }
 
