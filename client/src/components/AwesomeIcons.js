@@ -10,6 +10,9 @@ const AwesomeIcons = () => {
 
     return (
         <>
+            {/* TODO Become a Host component */}
+            {/* TODO Sign-up/in component */}
+
             <h1 className="display-3 text-center bg-secondary bg-opacity-25 mt-5">Bed and Breakfast</h1>
             <hr />
             <div className='d-flex flex-wrap justify-content-evenly m-3'>

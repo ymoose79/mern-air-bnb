@@ -3,14 +3,25 @@ import { useLocation } from 'react-router-dom'
 import Reviews from './Reviews';
 import Host from './Host'
 import Amenities from './Amenities';
+import PayCard from './PayCard';
+
+// TODO amenities  modul
+// TODO add superhost
+// TODO Things to know component
+// TODO review component (?)
+// TODO about host / map (?) component
+
 
 const LocationDetails = () => {
     const location = useLocation();
-    const { name, address: { street: neighborhood }, amenities, bathrooms: { $numberDecimal: baths }, bedrooms, beds, description, host, images: { picture_url: image }, minimum_nights, price: { $numberDecimal: price }, property_type, review_scores, room_type, summary, reviews, } = location.state
+    const { name, address: { street: neighborhood }, amenities, bathrooms: { $numberDecimal: baths }, bedrooms, beds, description, host, images: { picture_url: image }, price: { $numberDecimal: price }, property_type, review_scores, room_type, summary, reviews, accommodates, availability, cleaning_fee, extra_people, guests_included, maximum_nights, minimum_nights, security_deposit, ...rest } = location.state
 
     const { review_scores_rating: rating, review_scores_value: value } = review_scores
     const bbb = { baths, bedrooms, beds }
     console.log(location.state)
+
+    // object for PayCard
+    const payCardDets = { accommodates, availability, cleaning_fee, extra_people, guests_included, maximum_nights, minimum_nights, price, security_deposit, rating }
 
     return (
         <>
@@ -37,8 +48,13 @@ const LocationDetails = () => {
                     </div>
                 </div>
             </div>
-            <Host host={host} type={property_type} bbb={bbb} description={description} />
-            <Amenities amenities={amenities} />
+            <div className='row my-3'>
+                <div className='col-md-8'>
+                    <Host host={host} type={property_type} bbb={bbb} description={description} />
+                    <Amenities amenities={amenities} />
+                </div>
+                <PayCard payCardDets={payCardDets} />
+            </div>
         </>
     );
 };

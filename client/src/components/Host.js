@@ -9,9 +9,9 @@ const Host = ({ host, type, bbb, description }) => {
 
     return (
         <>
-            <div className='container-md align-items-center justify-content-start mt-3'>
+            <div className='container-md justify-content-start mt-3'>
                 <div className="row">
-                    <div className='offset-lg-1 col-10 col-md-auto'>
+                    <div className='col-10 col-md-auto'>
                         <h4>{type} hosted by {name}</h4>
                         <p className='align-items-start'>{bedrooms}_bedrooms | {beds}_beds | {baths}_baths</p>
                     </div>
@@ -19,10 +19,10 @@ const Host = ({ host, type, bbb, description }) => {
                         <img src={thumbnail} className="rounded-circle" alt="host" ></img>
                     </div>
                 </div>
-            </div>
-            <div className='row bg-light'>
-                <div className='my-3 offset-lg-1 col-md-6 overflow-auto border border-info' style={{ height: "20vh" }}>
-                    <p className='p-2'>{description}</p>
+                <div className='row bg-light border border-info'>
+                    <div className='my-3 col overflow-auto ' style={{ height: "20vh" }}>
+                        <p className='p-2'>{description}</p>
+                    </div>
                 </div>
             </div>
         </>)
