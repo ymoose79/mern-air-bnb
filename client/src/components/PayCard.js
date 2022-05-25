@@ -1,5 +1,5 @@
 import React from 'react'
-import DatePicker from './DatePicker';
+// import DatePicker from './DatePicker';
 import LeftRightTextAlign from './LeftRightTextAlign'
 
 const PayCard = ({ payCardDets }) => {
@@ -17,9 +17,9 @@ const PayCard = ({ payCardDets }) => {
                     rightText={<p className='text-end fw-light'>rating: <span className='fw-bold'>{rating}</span> of 100</p >}
                     title={true}
                 />
-                <div className='row mx-1'>
+                {/* <div className='row mx-1'>
                     <DatePicker minimum_nights={minimum_nights} />
-                </div>
+                </div> */}
                 <div className='row my-4 mx-2'>
                     <button type='button' className='btn btn-danger' onClick={check}>Reserve</button>
                 </div>
