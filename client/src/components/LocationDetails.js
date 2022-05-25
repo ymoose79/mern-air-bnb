@@ -48,13 +48,16 @@ const LocationDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className='row my-3'>
-                <div className='col-md-8'>
-                    <Host host={host} type={property_type} bbb={bbb} description={description} />
-                    <Amenities amenities={amenities} />
+            <div className='container'>
+                <div className='row my-3'>
+                    <div className='col-md-8'>
+                        <Host host={host} type={property_type} bbb={bbb} description={description} />
+                        <Amenities amenities={amenities} />
+                    </div>
+                    <PayCard payCardDets={payCardDets} />
                 </div>
-                <PayCard payCardDets={payCardDets} />
             </div>
+
         </>
     );
 };
