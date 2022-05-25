@@ -15,7 +15,7 @@ function App() {
         <div className='container-fluid'>
             <AwesomeIcons />
             <Routes>
-                <Route path="https://master--silver-belekoy-139fa5.netlify.app/" element={<Home />} />
+                <Route path="https://silver-belekoy-139fa5.netlify.app/" element={<Home />} />
                 <Route path=":city" element={<Location />} />
                 <Route path=":city/:id" element={<LocationDetails />} />
                 <Route path="*" element={<NoMatch />} />
