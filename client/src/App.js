@@ -12,7 +12,7 @@ import LocationDetails from "./components/LocationDetails.js";
 function App() {
 
     return (
-        <div className='container-fluid'>
+        <div className='container-lg'>
             <AwesomeIcons />
             <Routes>
                 <Route path="/" element={<Home />} />

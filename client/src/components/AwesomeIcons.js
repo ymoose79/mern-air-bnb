@@ -18,7 +18,7 @@ const AwesomeIcons = () => {
                         <a href="/" className='link-dark text-decoration-none'><h1 className="display-3 text-start">airbnb Spoof</h1></a>
                     </div>
                     <div className='col-auto ms-auto my-auto px-lg-5'>
-                        <button type="button" className="btn btn-outline-info"><FontAwesomeIcon icon={solid("bars")} /></button>
+                        <button type="button" class="btn btn-outline-info"><FontAwesomeIcon icon={solid("bars")} /></button>
                     </div>
                 </div>
             </div>

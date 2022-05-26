@@ -21,7 +21,7 @@ function Home() {
     }, []);
 
     return (
-        <div className="container-lg">
+        <div className="container">
             <div className="d-flex flex-wrap justify-content-evenly">
                 {twentyListings.map((listing) => {
                     return <HomeCard listing={listing} />
