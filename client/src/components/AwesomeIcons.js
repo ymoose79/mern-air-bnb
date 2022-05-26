@@ -12,10 +12,19 @@ const AwesomeIcons = () => {
         <>
             {/* TODO Become a Host component */}
             {/* TODO Sign-up/in component */}
-
-            <h1 className="display-3 text-center bg-secondary bg-opacity-25 mt-5">Bed and Breakfast</h1>
+            <div className='container p-2 bg-secondary bg-opacity-25 ps-3 mt-2 mt-md-5 rounded'>
+                <div className='row'>
+                    <div className='col-auto'>
+                        <a href="/" className='link-dark text-decoration-none'><h1 className="display-3 text-start">airbnb Spoof</h1></a>
+                    </div>
+                    <div className='col-auto ms-auto my-auto px-lg-5'>
+                        <button type="button" className="btn btn-outline-info"><FontAwesomeIcon icon={solid("bars")} /></button>
+                    </div>
+                </div>
+            </div>
             <hr />
-            <div className='d-flex flex-wrap justify-content-evenly m-3'>
+
+            <div className='d-flex flex-wrap justify-content-evenly m-md-3'>
                 {iconInfo.map((faIcon, i) => {
                     return (
                         <div key={i}>

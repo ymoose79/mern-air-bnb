@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Card from './Card.js'
+import HomeCard from "./HomeCard.js";
 
 
 const { REACT_APP_URL } = process.env
@@ -21,10 +21,12 @@ function Home() {
     }, []);
 
     return (
-        <div className="d-flex flex-wrap justify-content-evenly">
-            {twentyListings.map((listing) => {
-                return <Card listing={listing} />
-            })}
+        <div className="container-lg">
+            <div className="d-flex flex-wrap justify-content-evenly">
+                {twentyListings.map((listing) => {
+                    return <HomeCard listing={listing} />
+                })}
+            </div>
         </div>
     )
 }

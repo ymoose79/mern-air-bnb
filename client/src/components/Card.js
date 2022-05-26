@@ -14,17 +14,19 @@ const Card = ({ listing }) => {
 
     const navigate = useNavigate()
 
-    const { name, summary } = listing;
+    const { summary, images, name } = listing;
     const renderListing = listing.summary.length > 0;
 
     const handleRouter = (listing) => {
         navigate(`${listing._id}`, { state: { ...listing } });
     }
 
+
     if (renderListing) {
 
         return (
             <div className='card m-2' style={{ width: '18rem' }} >
+                <img src={images.picture_url} className="card-img-top" alt="..." />
                 <div className='card-body'>
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text">{summary}</p>
