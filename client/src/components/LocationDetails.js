@@ -5,6 +5,7 @@ import Host from './Host'
 import Amenities from './Amenities';
 import PayCard from './PayCard';
 
+
 // TODO amenities  modul
 // TODO add superhost
 // TODO Things to know component
@@ -57,7 +58,6 @@ const LocationDetails = () => {
                     <PayCard payCardDets={payCardDets} />
                 </div>
             </div>
-
         </>
     );
 };

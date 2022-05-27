@@ -1,6 +1,7 @@
 import React from 'react'
 // import DatePicker from './DatePicker';
 import LeftRightTextAlign from './LeftRightTextAlign'
+import ReactTooltip from 'react-tooltip';
 
 const PayCard = ({ payCardDets }) => {
 
@@ -21,7 +22,7 @@ const PayCard = ({ payCardDets }) => {
                     <DatePicker minimum_nights={minimum_nights} />
                 </div> */}
                 <div className='row my-4 mx-2'>
-                    <button type='button' className='btn btn-danger' onClick={check}>Reserve</button>
+                    <button type='button' className='btn btn-danger' data-tip="functionality coming soon-ish ... Some acpects of card currently hardcoded" data-event="click" onClick={check}>Reserve</button>
                 </div>
                 <LeftRightTextAlign
                     leftText={<p className='text-decoration-underline'>$1000 x 4 nights</p>}
@@ -42,6 +43,7 @@ const PayCard = ({ payCardDets }) => {
                     border={true}
                 />
             </div>
+            <ReactTooltip effect="solid" place="bottom" />
         </>
     )
 }
