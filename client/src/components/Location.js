@@ -23,8 +23,8 @@ const Location = () => {
     }, [city]);
     return (
         <div className="d-flex flex-wrap justify-content-evenly">
-            {roomsForLet.map((rooms) => {
-                return <Card listing={rooms} />
+            {roomsForLet.map((rooms, i) => {
+                return <Card listing={rooms} key={i} />
             })}
         </div>
     )

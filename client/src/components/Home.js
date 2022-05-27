@@ -23,8 +23,8 @@ function Home() {
     return (
         <div className="container">
             <div className="d-flex flex-wrap justify-content-evenly">
-                {twentyListings.map((listing) => {
-                    return <HomeCard listing={listing} />
+                {twentyListings.map((listing, i) => {
+                    return <HomeCard listing={listing} key={i} />
                 })}
             </div>
         </div>

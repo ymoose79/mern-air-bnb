@@ -8,7 +8,6 @@ import LocationDetails from "./components/LocationDetails.js";
 
 
 
-
 function App() {
 
     return (
