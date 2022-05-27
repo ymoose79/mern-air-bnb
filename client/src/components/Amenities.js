@@ -21,7 +21,7 @@ const Amenities = ({ amenities }) => {
                     })}
                 </div>
             </div>
-            <button type="button" className='btn btn-outline-info py-3' data-tip="modal coming soon" data-event="click" >See All {amenities.length} Amenities</button>
+            <button type="button" className='btn btn-outline-info py-3' data-tip="modal coming soon">See All {amenities.length} Amenities</button>
             <ReactTooltip effect="solid" place="top" />
 
         </div>
