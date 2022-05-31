@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import ReactTooltip from 'react-tooltip';
 
 
-const AwesomeIcons = () => {
+const Navbar = () => {
 
     const iconInfo = [{ title: "New York", icon: solid('pizza-slice'), city: "New York", href: "/location/newyork" }, { title: "Portugal", icon: solid("futbol"), city: "Porto" }, { title: "Canada", icon: solid("hockey-puck"), city: "Montreal" }, { title: "Maui", icon: solid("umbrella-beach"), city: "Maui" }, { title: "The Big Island", icon: solid("volcano"), city: "The Big Island" }, { title: "Kauai, HI", city: "Kauai", icon: solid("volleyball") }, { title: "Spain", icon: solid("guitar"), city: "Barcelona" }, { title: "Turkey", icon: solid("moon"), city: "Istanbul" }, { title: "China", icon: solid("dragon"), city: "Hong Kong" }, { title: "Austrailia", icon: solid("beer-mug-empty"), city: "Sydney" }, { title: "Brazil", icon: solid("frog"), city: "Rio De Janeiro" }]
 
@@ -25,7 +25,6 @@ const AwesomeIcons = () => {
                 </div>
             </div>
             <hr />
-
             <div className='d-flex flex-wrap justify-content-evenly m-md-3'>
                 {iconInfo.map((faIcon, i) => {
                     return (
@@ -43,4 +42,4 @@ const AwesomeIcons = () => {
     )
 }
 
-export default AwesomeIcons
+export default Navbar

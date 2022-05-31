@@ -1,9 +1,9 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import Reviews from './Reviews';
-import Host from './Host'
-import Amenities from './Amenities';
-import PayCard from './PayCard';
+import Reviews from '../components/Reviews';
+import Host from '../components/Host'
+import Amenities from '../components/Amenities';
+import PayCard from '../components/PayCard';
 
 
 // TODO amenities  modul

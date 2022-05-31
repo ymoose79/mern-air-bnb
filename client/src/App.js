@@ -1,10 +1,11 @@
 import React from "react";
-import AwesomeIcons from "./components/AwesomeIcons.js";
+import NavBar from "./components/NavBar.js";
 import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home.js";
-import NoMatch from "./components/NoMatch.js";
-import Location from "./components/Location.js";
-import LocationDetails from "./components/LocationDetails.js";
+import Home from "./Routes/Home.js";
+import NoMatch from "./Routes/NoMatch.js";
+import Location from "./Routes/Location.js";
+import LocationDetails from "./Routes/LocationDetails.js";
+import Rentee from "./Routes/Rentee.js";
 
 
 
@@ -12,11 +13,12 @@ function App() {
 
     return (
         <div className='container-lg'>
-            <AwesomeIcons />
+            <NavBar />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path=":city" element={<Location />} />
                 <Route path=":city/:id" element={<LocationDetails />} />
+                <Route path="/rentee" element={<Rentee />} />
                 <Route path="*" element={<NoMatch />} />
             </Routes>
         </div>

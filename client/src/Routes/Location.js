@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Card from './Card'
-import Spinner from './Spinner'
+import Card from '../components/Card'
+import Spinner from '../components/Spinner'
 const { REACT_APP_URL } = process.env
 
 

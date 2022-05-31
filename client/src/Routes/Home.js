@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import HomeCard from "./HomeCard.js";
-import Spinner from "./Spinner.js";
+import Spinner from "../components/Spinner";
+import HomeCard from "../components/HomeCard"
 
 
 const { REACT_APP_URL } = process.env
