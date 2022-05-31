@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from './Card'
+import Spinner from './Spinner'
 const { REACT_APP_URL } = process.env
 
 
@@ -9,6 +10,8 @@ const Location = () => {
 
     const { city } = useParams()
     const [roomsForLet, setRoomsForLet] = useState([])
+    const [hidden, setHidden] = useState(false)
+
 
     useEffect(() => {
 
@@ -16,6 +19,7 @@ const Location = () => {
             const response = await fetch(`${REACT_APP_URL}location?city=${city}`)
             const res = await response.json();
             setRoomsForLet(res)
+            setHidden(true);
             console.log(res[1])
         }
         citySearch(city);
@@ -23,6 +27,7 @@ const Location = () => {
     }, [city]);
     return (
         <div className="d-flex flex-wrap justify-content-evenly">
+            <Spinner hidden={hidden} />
             {roomsForLet.map((rooms, i) => {
                 return <Card listing={rooms} key={i} />
             })}

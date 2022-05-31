@@ -9,7 +9,7 @@ const Amenities = ({ amenities }) => {
                 <div className='col-md-6'>
                     {amenities.map((amen, i) => {
                         if (i > 7) return;
-                        if (i % 2 == 0)
+                        if (i % 2 === 0)
                             return <li key={i}>{amen}</li>
                     })}
                 </div>
