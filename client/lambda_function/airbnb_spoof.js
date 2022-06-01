@@ -16,5 +16,5 @@ module.exports.handler = async (event, context) => {
     client = await clientPromise;
     console.log("Successfully connected to MongoDB.");
     context.callbackWaitsForEmptyEventLoop = false;
-    return client._db("sample_airbnb");
+    return client.db("sample_airbnb");
 }
