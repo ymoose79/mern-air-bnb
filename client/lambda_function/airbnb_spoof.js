@@ -4,24 +4,17 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 let _db;
 
-const client = new MongoClient(MONGODB_URI, {
+let client = new MongoClient(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
+const clientPromise = client.connect();
+
 module.exports.handler = async (event, context) => {
-    // otherwise the connection will never complete, since
-    // we keep the DB connection alive
+
+    client = await clientPromise;
+    console.log("Successfully connected to MongoDB.");
     context.callbackWaitsForEmptyEventLoop = false;
-    client.connect(function (err, db) {
-        // Verify we got a good "db" object
-        console.log('apple')
-        if (db) {
-            _db = db.db("sample_airbnb");
-            console.log("Successfully connected to MongoDB.");
-        } else {
-            console.log(err)
-        }
-    });
     return _db;
 }
