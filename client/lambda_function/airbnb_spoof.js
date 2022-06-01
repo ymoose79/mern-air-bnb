@@ -1,26 +1,24 @@
 const { MongoClient } = require("mongodb");
 const Db = process.env.MONGODB_URI;
+let cachedDb = null;
 
-const client = new MongoClient(Db, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+const connectToDatabase = async (uri) => {
+    console.log('apple')
+    if (cachedDb) return cachedDb;
 
-var _db;
+    const client = new MongoClient(Db, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
 
-module.exports.handler = {
-    connectToServer: function (callback) {
-        client.connect(function (err, db) {
-            // Verify we got a good "db" object
-            if (db) {
-                _db = db.db("sample_airbnb");
-                console.log("Successfully connected to MongoDB.");
-            }
-            return callback(err);
-        });
-    },
+    cachedDb = client.db(Db);
+    return cachedDb;
+}
 
-    getDb: function () {
-        return _db;
-    },
-};
+module.exports.handler = async (event, context) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+
+    console.log({ event }, { context })
+    connectToDatabase(Db)
+}
+
