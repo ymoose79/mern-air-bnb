@@ -1,8 +1,7 @@
-const MongoClient = require("mongodb").MongoClient;
+const { MongoClient } = require("mongodb")
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-let _db;
 
 let client = new MongoClient(MONGODB_URI, {
     useNewUrlParser: true,
