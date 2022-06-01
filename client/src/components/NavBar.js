@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { Link } from 'react-router-dom'
-import ReactTooltip from 'react-tooltip';
+// import ReactTooltip from 'react-tooltip';
 
 
 const Navbar = () => {
@@ -13,15 +13,13 @@ const Navbar = () => {
         <>
             {/* TODO Become a Host component */}
             {/* TODO Sign-up/in component */}
-            <div className='container p-2 bg-secondary bg-opacity-25 ps-3 mt-2 mt-md-5 rounded'>
-                <div className='row'>
-                    <div className='col-auto'>
-                        <a href="/" className='link-dark text-decoration-none'><h1 className="display-3 text-start">airbnb Spoof</h1></a>
-                    </div>
-                    <div className='col-auto ms-auto my-auto px-lg-5'>
-                        <button type="button" className="btn btn-outline-info" data-tip="Coming soon: Login/Create/Delete/Update Room for let" data-event="click"><FontAwesomeIcon icon={solid("bars")} /></button>
-                    </div>
-                    <ReactTooltip effect="solid" place="bottom" />
+            <div className='navbar'>
+                <div className='container p-2 bg-secondary bg-opacity-25 ps-3 mt-2 mt-md-5 rounded'>
+                    <a href="/" className='link-dark text-decoration-none'><h1 className="display-3 text-start">airbnb Spoof</h1></a>
+                    <button className='btn btn-link text-decoration-none'>sign up</button>
+                    <h5>rent your space</h5>
+                    {/* <button type="button" className="btn btn-outline-info" data-tip="Coming soon: Login/Create/Delete/Update Room for let" data-event="click"><FontAwesomeIcon icon={solid("bars")} /></button>
+                    <ReactTooltip effect="solid" place="bottom" /> */}
                 </div>
             </div>
             <hr />
