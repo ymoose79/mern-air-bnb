@@ -15,9 +15,9 @@ module.exports.handler = async (event, context) => {
     context.callbackWaitsForEmptyEventLoop = false;
     client.connect(function (err, db) {
         // Verify we got a good "db" object
+        console.log('apple')
         if (db) {
-            const dbObj = db.db("sample_airbnb");
-            _db = JSON.stringify(dbObj)
+            _db = db.db("sample_airbnb");
             console.log("Successfully connected to MongoDB.");
         } else {
             console.log(err)
