@@ -34,7 +34,9 @@ const queryLocalCity = async (db, local) => {
 module.exports.handler = async (event, context) => {
     client = await clientPromise;
     context.callbackWaitsForEmptyEventLoop = false;
+    console.log('event qsp = ', event.queryStringParameters)
     const local = event.queryStringParameters.location
+    console.log(local)
     const dbConn = await client.db("sample_airbnb")
     return queryLocalCity(dbConn, local);
 }
