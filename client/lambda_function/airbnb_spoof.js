@@ -11,7 +11,6 @@ let client = new MongoClient(MONGODB_URI, {
 const clientPromise = client.connect();
 
 const queryDb = async (db) => {
-    console.log('apple')
     const listAndRev = await db.collection("listingsAndReviews").find({}).limit(100).toArray()
     console.log(listAndRev)
     return {
@@ -25,7 +24,6 @@ const queryDb = async (db) => {
 
 module.exports.handler = async (event, context) => {
     client = await clientPromise;
-    console.log("Successfully connected to MongoDB.");
     context.callbackWaitsForEmptyEventLoop = false;
 
     const dbConn = await client.db("sample_airbnb")

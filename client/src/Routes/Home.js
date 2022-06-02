@@ -3,7 +3,7 @@ import Spinner from "../components/Spinner";
 import HomeCard from "../components/HomeCard"
 
 
-const { REACT_APP_URL } = process.env
+// const { REACT_APP_URL } = process.env
 
 function Home() {
 
@@ -14,7 +14,7 @@ function Home() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(`${REACT_APP_URL}`)
+            const response = await fetch(`/.netlify/functions/airbnb_spoof`)
             const airbnbListings = await response.json(response)
             const topTwenty = airbnbListings.slice(0, 100)
             setTwentyListings(topTwenty)
