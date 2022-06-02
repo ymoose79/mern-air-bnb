@@ -12,9 +12,8 @@ const clientPromise = client.connect();
 
 const queryLocalCity = async (db, local) => {
 
-    const { city } = local
     const myObj = {
-        "address.market": city
+        "address.market": local
     }
 
     const localCity = await db
@@ -34,8 +33,8 @@ const queryLocalCity = async (db, local) => {
 module.exports.handler = async (event, context) => {
     client = await clientPromise;
     context.callbackWaitsForEmptyEventLoop = false;
-    console.log('event qsp = ', event.queryStringParameters)
-    const local = event.queryStringParameters.location
+
+    const local = event.queryStringParameters.city
     console.log(local)
     const dbConn = await client.db("sample_airbnb")
     return queryLocalCity(dbConn, local);
