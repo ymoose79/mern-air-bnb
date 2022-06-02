@@ -14,7 +14,7 @@ const HomeCard = ({ listing }) => {
     if (price > 200) {
         return (
             <div className='card m-2' style={{ width: '18rem' }} >
-                <img src={images.picture_url} className="card-img-top" alt="..." />
+                <img src={images.picture_url} className="card-img-top" style={{ height: "15rem", objectFit: "cover" }} alt="..." />
                 <div className='card-body'>
                     <h5 className="card-title">{neighborhood}</h5>
                     <h6 className='align-items-start text-secondary'>{bedrooms}_bedrooms | {beds}_beds | {baths}_baths</h6>
