@@ -12,7 +12,7 @@ const clientPromise = client.connect();
 
 const queryDb = async (db) => {
     console.log('apple')
-    const listAndRev = await db.collection("listingsAndReviews").find({}).toArray()
+    const listAndRev = await db.collection("listingsAndReviews").find({}).limit(100).toArray()
     console.log(listAndRev)
     return {
         statusCode: 200,
