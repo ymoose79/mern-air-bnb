@@ -25,13 +25,18 @@ const Location = () => {
         citySearch(city);
         return;
     }, [city]);
+
     return (
-        <div className="d-flex flex-wrap justify-content-evenly">
-            <Spinner hidden={hidden} />
-            {roomsForLet.map((rooms, i) => {
-                return <Card listing={rooms} key={i} />
-            })}
-        </div>
+        <>
+            <div className='d-flex justify-content-center'>
+                <Spinner hidden={hidden} />
+            </div>
+            <div className="d-flex flex-wrap justify-content-evenly">
+                {roomsForLet.map((rooms, i) => {
+                    return <Card listing={rooms} key={i} />
+                })}
+            </div>
+        </>
     )
 }
 

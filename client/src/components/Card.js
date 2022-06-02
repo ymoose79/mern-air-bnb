@@ -26,12 +26,12 @@ const Card = ({ listing }) => {
 
         return (
             <div className='card m-2' style={{ width: '18rem' }} >
-                <img src={images.picture_url} className="card-img-top" alt="..." />
+                <img src={images.picture_url} className="card-img-top" alt="..." style={{ height: "15rem", objectFit: "cover" }} />
                 <div className='card-body'>
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text">{summary}</p>
-                    <button className="btn btn-primary" onClick={() => handleRouter(listing)} >Check it Out! </button>
                 </div>
+                <button className="btn btn-primary" onClick={() => handleRouter(listing)} >Check it Out! </button>
             </div>
         )
     }
