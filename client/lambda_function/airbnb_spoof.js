@@ -23,7 +23,7 @@ const queryDb = async (db) => {
 }
 
 module.exports.handler = async (event, context) => {
-
+    console.log('apple')
     client = await clientPromise;
     console.log("Successfully connected to MongoDB.");
     context.callbackWaitsForEmptyEventLoop = false;
