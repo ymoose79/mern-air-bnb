@@ -7,6 +7,8 @@ const authRoute = require('./routes/auth')
 app.use(cors());
 app.use(express.json());
 
+
+
 app.use(function (req, resp, next) {
     if (validateAuth(req)) {
         next();
@@ -14,17 +16,18 @@ app.use(function (req, resp, next) {
         resp.status(401).send("UNAUTHORIZED");
     }
 });
+
+
 function validateAuth(req) {
     const { authorization } = req.headers;
     console.log({ authorization });
     return true; // !!authorization;
 }
+
+
 app.use(require("./routes/listingsandreview"));
 app.use('./api/user', authRoute)
 // get driver connection
-
-
-
 const dbo = require("./db/conn");
 
 app.listen(port, () => {
