@@ -11,8 +11,11 @@ let client = new MongoClient(MONGODB_URI, {
 const clientPromise = client.connect();
 
 const queryDb = async (db) => {
-    const listAndRev = await db.collection("listingsAndReviews").find({}).limit(100).toArray()
-    console.log(listAndRev)
+    const listAndRev = await db
+        .collection("listingsAndReviews")
+        .find({})
+        .limit(100)
+        .toArray()
     return {
         statusCode: 200,
         headers: {
@@ -22,10 +25,13 @@ const queryDb = async (db) => {
     }
 }
 
+
+
 module.exports.handler = async (event, context) => {
     client = await clientPromise;
     context.callbackWaitsForEmptyEventLoop = false;
-
+    console.log(event)
     const dbConn = await client.db("sample_airbnb")
     return queryDb(dbConn);
 }
+
