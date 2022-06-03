@@ -10,7 +10,6 @@ import Rentee from "./Routes/Rentee.js";
 
 
 function App() {
-
     return (
         <div className='container-lg'>
             <NavBar />

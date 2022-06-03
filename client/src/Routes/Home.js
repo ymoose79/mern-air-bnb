@@ -14,6 +14,9 @@ function Home() {
 
     useEffect(() => {
         async function fetchData() {
+            // // Development
+            // const response = await fetch(`${REACT_APP_URL}airbnb_spoof`)
+            // production
             const response = await fetch(`${REACT_APP_URL}`)
             const airbnbListings = await response.json(response)
             const topTwenty = airbnbListings.slice(0, 100)
