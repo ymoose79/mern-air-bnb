@@ -29,14 +29,16 @@ function Home() {
     }, [hidden]);
 
     return (
-        <div className="container">
-            <div className="d-flex flex-wrap justify-content-evenly">
+        <>
+            <div className='d-flex justify-content-center'>
                 <Spinner hidden={hidden} />
+            </div>
+            <div className="d-flex flex-wrap justify-content-evenly">
                 {twentyListings.map((listing, i) => {
                     return <HomeCard listing={listing} key={i} />
                 })}
             </div>
-        </div>
+        </>
     )
 }
 
