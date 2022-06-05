@@ -25,12 +25,9 @@ const queryDb = async (db) => {
     }
 }
 
-
-
 module.exports.handler = async (event, context) => {
     client = await clientPromise;
     context.callbackWaitsForEmptyEventLoop = false;
-    console.log(event)
     const dbConn = await client.db("sample_airbnb")
     return queryDb(dbConn);
 }

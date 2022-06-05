@@ -35,7 +35,6 @@ module.exports.handler = async (event, context) => {
     context.callbackWaitsForEmptyEventLoop = false;
 
     const local = event.queryStringParameters.city
-    console.log(local)
     const dbConn = await client.db("sample_airbnb")
     return queryLocalCity(dbConn, local);
 }
