@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+
 require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 5000;
-const authRoute = require('./routes/auth')
+
 app.use(cors());
 app.use(express.json());
-
 
 
 app.use(function (req, resp, next) {
@@ -26,7 +26,9 @@ function validateAuth(req) {
 
 
 app.use(require("./routes/listingsandreview"));
-app.use('./api/user', authRoute)
+app.use(require("./routes/auth"))
+// app.use('./api/user', authRoute)
+
 // get driver connection
 const dbo = require("./db/conn");
 

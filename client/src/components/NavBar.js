@@ -28,7 +28,7 @@ const Navbar = () => {
                     <h5>rent your space</h5>
                 </div>
             </div>
-            <ReactModal open={open} openModalState={() => openModalState} />
+            <ReactModal open={open} closeButton={true} openModalState={() => openModalState} />
             <hr />
             <div className='d-flex flex-wrap justify-content-evenly m-md-3'>
                 {iconInfo.map((faIcon, i) => {
