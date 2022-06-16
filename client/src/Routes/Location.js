@@ -4,14 +4,11 @@ import Card from '../components/Card'
 import Spinner from '../components/Spinner'
 const { REACT_APP_URL } = process.env
 
-
-
 const Location = () => {
 
     const { city } = useParams()
     const [roomsForLet, setRoomsForLet] = useState([])
     const [hidden, setHidden] = useState(false)
-
 
     useEffect(() => {
 
