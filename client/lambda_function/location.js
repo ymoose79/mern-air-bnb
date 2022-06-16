@@ -11,11 +11,9 @@ let client = new MongoClient(MONGODB_URI, {
 const clientPromise = client.connect();
 
 const queryLocalCity = async (db, local) => {
-
     const myObj = {
         "address.market": local
     }
-
     const localCity = await db
         .collection("listingsAndReviews")
         .find(myObj)
@@ -35,7 +33,6 @@ module.exports.handler = async (event, context) => {
     context.callbackWaitsForEmptyEventLoop = false;
 
     const local = event.queryStringParameters.city
-    console.log(local)
     const dbConn = await client.db("sample_airbnb")
     return queryLocalCity(dbConn, local);
 }

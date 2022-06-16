@@ -14,15 +14,15 @@ const queryDb = async (db) => {
     const listAndRev = await db
         .collection("listingsAndReviews")
         .find({})
-        .limit(100)
-        .toArray()
+        .limit(50)
+        .toArray();
     return {
         statusCode: 200,
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(listAndRev)
-    }
+    };
 }
 
 
@@ -30,7 +30,7 @@ const queryDb = async (db) => {
 module.exports.handler = async (event, context) => {
     client = await clientPromise;
     context.callbackWaitsForEmptyEventLoop = false;
-    console.log(event)
+
     const dbConn = await client.db("sample_airbnb")
     return queryDb(dbConn);
 }
