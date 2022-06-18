@@ -20,7 +20,6 @@ app.use(function (req, resp, next) {
 
 function validateAuth(req) {
     const { authorization } = req.headers;
-    console.log({ authorization });
     return true; // !!authorization;
 }
 
