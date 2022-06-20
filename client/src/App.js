@@ -13,7 +13,6 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 function App() {
 
     const { REACT_APP_CLIENT_ID } = process.env
-    console.log(process.env)
 
     return (
         <div className='container-lg'>

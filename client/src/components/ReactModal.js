@@ -9,7 +9,8 @@
 
 import React, { useState } from 'react'
 import Modal from "react-bootstrap/Modal";
-import { GoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const ReactModal = ({ open, openModalState }) => {
@@ -23,6 +24,10 @@ const ReactModal = ({ open, openModalState }) => {
     const handleChange = (e) => { e.preventDefault(); console.log(e.target); setName(e.target.value) }
     const handleSubmit = () => { }
     const switchMode = () => { setSignUp(!signUp) }
+
+    const login = useGoogleLogin({
+        onSuccess: res => { console.log(res) },
+    });
 
     return (
 
@@ -43,15 +48,8 @@ const ReactModal = ({ open, openModalState }) => {
                 </form>
                 <hr />
                 <h6 className="text-center">or</h6>
-                <div className='d-grid gap-2'>
-                    <GoogleLogin
-                        onSuccess={credentialResponse => {
-                            console.log(credentialResponse);
-                        }}
-                        onError={() => {
-                            console.log('Login Failed');
-                        }}
-                    />
+                <div className="d-grid gap-2 mx-5">
+                    <button className="btn btn-outline-primary" onClick={() => login()}>Sign in with Google 🪬</button>
                     <button onClick={check}>facebook</button>
                 </div>
             </Modal.Body>
