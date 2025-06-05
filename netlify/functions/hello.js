@@ -1,32 +1,33 @@
 const mongoose = require('mongoose');
 
-let isConnected;
+let isConnected = false; // cache the DB connection across invocations
 
-const connectToDatabase = async () => {
+async function connectToDatabase() {
     if (isConnected) {
         console.log('=> using existing database connection');
         return;
     }
 
-    console.log('=> using new database connection');
+    console.log('=> creating new database connection');
     await mongoose.connect(process.env.MONGODB_URI, {
-        serverSelectionTimeoutMS: 5000, // fail faster if cannot connect
+        serverSelectionTimeoutMS: 5000,  // fail fast if cannot connect
     });
 
-    isConnected = mongoose.connection.readyState;
-};
+    isConnected = true;
+}
 
-exports.handler = async (event, context) => {
+exports.handler = async function (event, context) {
+    console.log("Function invoked");
+
     try {
         await connectToDatabase();
 
-        // Your logic here
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: 'MongoDB connection successful!' }),
+            body: JSON.stringify({ message: 'Successfully connected to MongoDB!' }),
         };
     } catch (err) {
-        console.error('Function error:', err);
+        console.error("MongoDB connection error: ", err);
         return {
             statusCode: 500,
             body: JSON.stringify({ error: err.message }),
