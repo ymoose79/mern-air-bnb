@@ -1,13 +1,38 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import {
+    faBars,
+    faPizzaSlice,
+    faFutbol,
+    faHockeyPuck,
+    faUmbrellaBeach,
+    faVolcano,
+    faVolleyball,
+    faGuitar,
+    faMoon,
+    faDragon,
+    faBeerMugEmpty,
+    faFrog
+} from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
 import ReactTooltip from 'react-tooltip';
 
 
 const Navbar = () => {
 
-    const iconInfo = [{ title: "New York", icon: solid('pizza-slice'), city: "New York", href: "/location/newyork" }, { title: "Portugal", icon: solid("futbol"), city: "Porto" }, { title: "Canada", icon: solid("hockey-puck"), city: "Montreal" }, { title: "Maui", icon: solid("umbrella-beach"), city: "Maui" }, { title: "The Big Island", icon: solid("volcano"), city: "The Big Island" }, { title: "Kauai, HI", city: "Kauai", icon: solid("volleyball") }, { title: "Spain", icon: solid("guitar"), city: "Barcelona" }, { title: "Turkey", icon: solid("moon"), city: "Istanbul" }, { title: "China", icon: solid("dragon"), city: "Hong Kong" }, { title: "Austrailia", icon: solid("beer-mug-empty"), city: "Sydney" }, { title: "Brazil", icon: solid("frog"), city: "Rio De Janeiro" }]
+    const iconInfo = [
+        { title: "New York", icon: faPizzaSlice, city: "New York", href: "/location/newyork" },
+        { title: "Portugal", icon: faFutbol, city: "Porto" },
+        { title: "Canada", icon: faHockeyPuck, city: "Montreal" },
+        { title: "Maui", icon: faUmbrellaBeach, city: "Maui" },
+        { title: "The Big Island", icon: faVolcano, city: "The Big Island" },
+        { title: "Kauai, HI", city: "Kauai", icon: faVolleyball },
+        { title: "Spain", icon: faGuitar, city: "Barcelona" },
+        { title: "Turkey", icon: faMoon, city: "Istanbul" },
+        { title: "China", icon: faDragon, city: "Hong Kong" },
+        { title: "Australia", icon: faBeerMugEmpty, city: "Sydney" },
+        { title: "Brazil", icon: faFrog, city: "Rio De Janeiro" }
+    ]
 
     return (
         <>
@@ -19,7 +44,7 @@ const Navbar = () => {
                         <a href="/" className='link-dark text-decoration-none'><h1 className="display-3 text-start">airbnb Spoof</h1></a>
                     </div>
                     <div className='col-auto ms-auto my-auto px-lg-5'>
-                        <button type="button" className="btn btn-outline-info" data-tip="Coming soon: Login/Create/Delete/Update Room for let" data-event="click"><FontAwesomeIcon icon={solid("bars")} /></button>
+                        <button type="button" className="btn btn-outline-info" data-tip="Coming soon: Login/Create/Delete/Update Room for let" data-event="click"><FontAwesomeIcon icon={faBars} /></button>
                     </div>
                     <ReactTooltip effect="solid" place="bottom" />
                 </div>
